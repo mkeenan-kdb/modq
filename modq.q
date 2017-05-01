@@ -27,6 +27,11 @@ lf:{system["l /home/michael/projects/modq/modq.q"];}
    ];
    .kdb.misc.resetFunc[".z.pi"]];
  }
+/@Function Name| .kdb.dev.streamList
+/@Description  | Investigate a list or table etc (something that can be indexed by number)
+/@Params       | rows<-7h> list
+/@Example      | .kdb.dev.streamList[40;100?([]times:10?.z.T;syms:10?`3)]
+.kdb.dev.streamList:{[rows;list] {.kdb.misc.clearScreen[];show y[z+x];system["sleep 0.1"]}[til rows;list;]each til 1+count list;}
 /@Function Name| .kdb.dev.insertBreak
 /@Description  | Insert break statement as the first statement to be executed in a user defined function
 /@Params       | func<100h 104h>
